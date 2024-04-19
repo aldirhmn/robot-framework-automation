@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.4 on win32)" generated="2024-04-20T03:23:38.683006" rpa="false" schemaversion="5">
+<suite id="s1" name="End-To-End" source="C:\Users\aldir\OneDrive\Documents\Automation\Robot Framework\robot-framework-automation\test-suites\end-to-end.robot">
+<test id="s1-t1" name="End To End Test" line="8">
+<kw name="Successful Login With Valid Credentials" owner="login_tests">
+<kw name="Given User open Browser and Navigate to SauceDemo" owner="login_steps">
+<kw name="Open Sauce Demo Login Page" owner="login_keyword">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:39.010603" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${LOGIN PAGE}</arg>
+<arg>browser=Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-20T03:23:39.010603" elapsed="1.927448"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-04-20T03:23:40.938051" elapsed="0.025051"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:39.010091" elapsed="1.954018"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:39.009088" elapsed="1.955021"/>
+</kw>
+<kw name="When User input valid Username and Password" owner="login_steps">
+<kw name="Enter Username And Password" owner="login_keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:40.965110" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>${USERNAME INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:40.965110" elapsed="0.163300"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.129413" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>${PASSWORD INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.129413" elapsed="0.103125"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2024-04-20T03:23:40.965110" elapsed="0.267428"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:40.964109" elapsed="0.269433"/>
+</kw>
+<kw name="And User click Login Button" owner="login_steps">
+<kw name="Submit Login" owner="login_keyword">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.234543" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>${LOGIN BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.233542" elapsed="0.110159"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.233542" elapsed="0.110159"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.233542" elapsed="0.110159"/>
+</kw>
+<kw name="Then User successfully Login and Direct to HomePage" owner="login_steps">
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.356746" level="INFO">Current location is 'https://www.saucedemo.com/inventory.html'.</msg>
+<arg>https://www.saucedemo.com/inventory.html</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.344706" elapsed="0.012040"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.343701" elapsed="0.014047"/>
+</kw>
+<tag>valid</tag>
+<status status="PASS" start="2024-04-20T03:23:39.008083" elapsed="2.349665"/>
+</kw>
+<kw name="Adding Item to Cart" owner="add_to_cart_tests">
+<kw name="Given User already in HomePage" owner="add_cart_steps">
+<kw name="Already In HomePage" owner="cart_keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OBJECT1}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.359754" elapsed="0.027604"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.406421" level="INFO">Element 'xpath=//div[normalize-space()='Sauce Labs Backpack']/../../..//button' is displayed.</msg>
+<arg>${OBJECT1}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.387358" elapsed="0.019063"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.359754" elapsed="0.046667"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.358752" elapsed="0.047669"/>
+</kw>
+<kw name="And User adding some Items to Cart" owner="add_cart_steps">
+<kw name="Click All Products Button" owner="cart_keyword">
+<for flavor="IN">
+<iter>
+<kw name="Click Product Button" owner="cart_object">
+<kw name="Construct Button Locator" owner="cart_object">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-20T03:23:41.409430" level="INFO">${xpath} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${xpath}</var>
+<arg>xpath=//div[text()='${productName}']/ancestor::div[contains(@class,'inventory_item')]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.408427" elapsed="0.001003"/>
+</kw>
+<return>
+<value>${xpath}</value>
+<status status="PASS" start="2024-04-20T03:23:41.409430" elapsed="0.000000"/>
+</return>
+<msg time="2024-04-20T03:23:41.409430" level="INFO">${BUTTON_XPATH} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${BUTTON_XPATH}</var>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.408427" elapsed="0.001003"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.410433" level="INFO">Clicking element 'xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[contains(@class,'inventory_item')]//button'.</msg>
+<arg>${BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.409430" elapsed="0.054180"/>
+</kw>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.407425" elapsed="0.056185"/>
+</kw>
+<var name="${productName}">Sauce Labs Backpack</var>
+<status status="PASS" start="2024-04-20T03:23:41.407425" elapsed="0.056185"/>
+</iter>
+<iter>
+<kw name="Click Product Button" owner="cart_object">
+<kw name="Construct Button Locator" owner="cart_object">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-20T03:23:41.464613" level="INFO">${xpath} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${xpath}</var>
+<arg>xpath=//div[text()='${productName}']/ancestor::div[contains(@class,'inventory_item')]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.464613" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${xpath}</value>
+<status status="PASS" start="2024-04-20T03:23:41.465617" elapsed="0.000000"/>
+</return>
+<msg time="2024-04-20T03:23:41.465617" level="INFO">${BUTTON_XPATH} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${BUTTON_XPATH}</var>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.464613" elapsed="0.001004"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.465617" level="INFO">Clicking element 'xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[contains(@class,'inventory_item')]//button'.</msg>
+<arg>${BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.465617" elapsed="0.043143"/>
+</kw>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.463610" elapsed="0.045150"/>
+</kw>
+<var name="${productName}">Sauce Labs Bike Light</var>
+<status status="PASS" start="2024-04-20T03:23:41.463610" elapsed="0.045150"/>
+</iter>
+<iter>
+<kw name="Click Product Button" owner="cart_object">
+<kw name="Construct Button Locator" owner="cart_object">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-20T03:23:41.510766" level="INFO">${xpath} = xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${xpath}</var>
+<arg>xpath=//div[text()='${productName}']/ancestor::div[contains(@class,'inventory_item')]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.509773" elapsed="0.000993"/>
+</kw>
+<return>
+<value>${xpath}</value>
+<status status="PASS" start="2024-04-20T03:23:41.510766" elapsed="0.000000"/>
+</return>
+<msg time="2024-04-20T03:23:41.510766" level="INFO">${BUTTON_XPATH} = xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${BUTTON_XPATH}</var>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.509773" elapsed="0.000993"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.510766" level="INFO">Clicking element 'xpath=//div[text()='Sauce Labs Bolt T-Shirt']/ancestor::div[contains(@class,'inventory_item')]//button'.</msg>
+<arg>${BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.510766" elapsed="0.045150"/>
+</kw>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.509773" elapsed="0.046143"/>
+</kw>
+<var name="${productName}">Sauce Labs Bolt T-Shirt</var>
+<status status="PASS" start="2024-04-20T03:23:41.508760" elapsed="0.047156"/>
+</iter>
+<iter>
+<kw name="Click Product Button" owner="cart_object">
+<kw name="Construct Button Locator" owner="cart_object">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-20T03:23:41.556918" level="INFO">${xpath} = xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${xpath}</var>
+<arg>xpath=//div[text()='${productName}']/ancestor::div[contains(@class,'inventory_item')]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.556918" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${xpath}</value>
+<status status="PASS" start="2024-04-20T03:23:41.556918" elapsed="0.000000"/>
+</return>
+<msg time="2024-04-20T03:23:41.556918" level="INFO">${BUTTON_XPATH} = xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${BUTTON_XPATH}</var>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.556918" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.557923" level="INFO">Clicking element 'xpath=//div[text()='Sauce Labs Fleece Jacket']/ancestor::div[contains(@class,'inventory_item')]//button'.</msg>
+<arg>${BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.557923" elapsed="0.043652"/>
+</kw>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.555916" elapsed="0.045659"/>
+</kw>
+<var name="${productName}">Sauce Labs Fleece Jacket</var>
+<status status="PASS" start="2024-04-20T03:23:41.555916" elapsed="0.046662"/>
+</iter>
+<iter>
+<kw name="Click Product Button" owner="cart_object">
+<kw name="Construct Button Locator" owner="cart_object">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-20T03:23:41.604585" level="INFO">${xpath} = xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${xpath}</var>
+<arg>xpath=//div[text()='${productName}']/ancestor::div[contains(@class,'inventory_item')]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.604585" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${xpath}</value>
+<status status="PASS" start="2024-04-20T03:23:41.604585" elapsed="0.000000"/>
+</return>
+<msg time="2024-04-20T03:23:41.604585" level="INFO">${BUTTON_XPATH} = xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${BUTTON_XPATH}</var>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.603581" elapsed="0.001004"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.605588" level="INFO">Clicking element 'xpath=//div[text()='Sauce Labs Onesie']/ancestor::div[contains(@class,'inventory_item')]//button'.</msg>
+<arg>${BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.605588" elapsed="0.046154"/>
+</kw>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.602578" elapsed="0.049164"/>
+</kw>
+<var name="${productName}">Sauce Labs Onesie</var>
+<status status="PASS" start="2024-04-20T03:23:41.602578" elapsed="0.049164"/>
+</iter>
+<iter>
+<kw name="Click Product Button" owner="cart_object">
+<kw name="Construct Button Locator" owner="cart_object">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-20T03:23:41.654751" level="INFO">${xpath} = xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${xpath}</var>
+<arg>xpath=//div[text()='${productName}']/ancestor::div[contains(@class,'inventory_item')]//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.653749" elapsed="0.001002"/>
+</kw>
+<return>
+<value>${xpath}</value>
+<status status="PASS" start="2024-04-20T03:23:41.654751" elapsed="0.000000"/>
+</return>
+<msg time="2024-04-20T03:23:41.654751" level="INFO">${BUTTON_XPATH} = xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[contains(@class,'inventory_item')]//button</msg>
+<var>${BUTTON_XPATH}</var>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.653749" elapsed="0.001002"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.655753" level="INFO">Clicking element 'xpath=//div[text()='Test.allTheThings() T-Shirt (Red)']/ancestor::div[contains(@class,'inventory_item')]//button'.</msg>
+<arg>${BUTTON_XPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.655753" elapsed="0.045149"/>
+</kw>
+<arg>${productName}</arg>
+<status status="PASS" start="2024-04-20T03:23:41.652745" elapsed="0.049161"/>
+</kw>
+<var name="${productName}">Test.allTheThings() T-Shirt (Red)</var>
+<status status="PASS" start="2024-04-20T03:23:41.651742" elapsed="0.050164"/>
+</iter>
+<var>${productName}</var>
+<value>@{PRODUCT NAMES}</value>
+<status status="PASS" start="2024-04-20T03:23:41.407425" elapsed="0.294481"/>
+</for>
+<status status="PASS" start="2024-04-20T03:23:41.407425" elapsed="0.294481"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.406421" elapsed="0.296491"/>
+</kw>
+<kw name="When User click button Cart" owner="add_cart_steps">
+<kw name="Click Button Cart" owner="cart_keyword">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:41.703913" level="INFO">Clicking element 'id=shopping_cart_container'.</msg>
+<arg>${BUTTON_CART}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.703913" elapsed="0.080266"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-20T03:23:51.785118" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-20T03:23:41.784179" elapsed="10.000939"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.703913" elapsed="10.081205"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:41.702912" elapsed="10.083209"/>
+</kw>
+<kw name="Then User successfully add item to cart" owner="add_cart_steps">
+<kw name="Product Already Added" owner="cart_keyword">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-04-20T03:23:51.806189" level="INFO">Element 'xpath=//div[@class='cart_item_label']' is displayed.</msg>
+<arg>${OBJECT_CART1}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-20T03:23:51.787125" elapsed="0.019064"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:51.786121" elapsed="0.021070"/>
+</kw>
+<status status="PASS" start="2024-04-20T03:23:51.786121" elapsed="0.021070"/>
+</kw>
+<tag>add_to_cart</tag>
+<status status="PASS" start="2024-04-20T03:23:41.358752" elapsed="10.448439"/>
+</kw>
+<tag>end-to-end</tag>
+<tag>positive end-to-end</tag>
+<status status="PASS" start="2024-04-20T03:23:39.007080" elapsed="12.800111"/>
+</test>
+<doc>Running All Suites</doc>
+<status status="PASS" start="2024-04-20T03:23:38.685013" elapsed="13.123181"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">end-to-end</stat>
+<stat pass="1" fail="0" skip="0">positive end-to-end</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="End-To-End">End-To-End</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-04-20T03:23:38.974974" level="WARN">Error in file 'C:\Users\aldir\OneDrive\Documents\Automation\Robot Framework\robot-framework-automation\resources\object-locators\cart-page\cart_object.resource' on line 9: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
