@@ -2,7 +2,8 @@
 Library           SeleniumLibrary
 Resource          ../../variables/login/login_variable.resource
 Resource          ../../object-locators/login-page/login_object.resource
-Resource          ../../variables/global_variable.resource
+Resource          ../../../config/global_variable.resource
+Resource          ../../../lib/helpers.robot
 
 *** Keywords ***
 Open Sauce Demo Login Page
@@ -13,6 +14,7 @@ Enter Username And Password
     [Arguments]    ${username}    ${password}
     Input Text    ${USERNAME INPUT}    ${username}
     Input Text    ${PASSWORD INPUT}    ${password}
+    Take Screenshot Custom
 
 Submit Login
     Click Element    ${LOGIN BUTTON}

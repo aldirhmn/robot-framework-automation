@@ -1,10 +1,12 @@
 *** Settings ***
 Resource          ../../../resources/keywords/login/login_keyword.resource
 Resource          ../../../resources/variables/login/login_variable.resource
+Resource          ../../../lib/helpers.robot
 
 *** Keywords ***
 User open Browser and Navigate to SauceDemo
     Open Sauce Demo Login Page
+    Take Screenshot Custom
 
 User input valid Username and Password
     Enter Username And Password    ${USERNAME}    ${PASSWORD}
@@ -20,3 +22,4 @@ User successfully Login and Direct to HomePage
 
 User unsuccessfully Login and Direct to LoginPage
     Check Error Message
+    Take Screenshot Custom
